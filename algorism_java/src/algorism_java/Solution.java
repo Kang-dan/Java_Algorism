@@ -40,7 +40,7 @@ public class Solution {
 	}
 }
 
-/*다른 풀
+/*다른 풀이
 import java.io.*;
 import java.util.*;
  
