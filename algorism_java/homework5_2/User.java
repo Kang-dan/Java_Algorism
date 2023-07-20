@@ -1,70 +1,100 @@
 package com.ssafy.homework5_2;
 
-public class User {
-	
-	// 외부에서 객체 내부의 변수에 직접 접근하지 못하도록 접근 제한자 설정
-	private String id;
-	private String password;
-	private String name;
-	private String email;
-	private int age;
-	
-	public User() {}
+public class Car {
+	// 1: 국가 2: 제작사 3: 차량구분 4: 차종 5: 세부차종 6: 차체형상 7: 안정장치
+	// 8: 배기량 9: 확인란 10: 제작년도 11: 공장위치 12~17: 제작일련번호
+	private String VIN; // 자동차 등로 번호 17자리
+	private String modelName; // 자동차 모델 이름
+	private String color; // 자동차 색상
+	private int mileage; // 주행거리
 
-	public User(String id, String password, String name, String email, int age) {
-		this.id = id;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-		this.age = age;
+	// 기본 생성자
+	public Car() {
 	}
 
-	/*
-	 * 멤버 변수 이름을 통해 직접 접근하는 대신
-	 * getter / setter 메소드를 통해 접근할수 있도록 getter / setter 메소드들을 만들어주세요.
-	 * 예) id값 가져오기 : getId() { .... / id값 설정하기 : setId(String id) { ...
+	// 인자를 받는 생성자
+	public Car(String VIN, String modelName, String color, int mileage) {
+		this.VIN = VIN;
+		this.modelName = modelName;
+		this.color = color;
+		this.mileage = mileage;
+	}
+
+	/**
+	 * 자동차 등록번호를 반환한다.
+	 * 
+	 * @return VIN
 	 */
-	public String getId() {
-		return id;
-	}
-	public void setId(String id){
-		this.id = id;
+	public String getVIN() {
+		return VIN;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void SetName(String name) {
-		this.name = name;
+	/**
+	 * 자동차 등록번호를 저장한다.
+	 * 
+	 * @param VIN
+	 */
+	public void setVIN(String VIN) {
+		this.VIN = VIN;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
+	/**
+	 * 자동차 모델이름을 반환한다.
+	 * 
+	 * @return modelName
+	 */
+	public String getModelName() {
+		return modelName;
 	}
 
-	
+	/**
+	 * 자동차 모델이름을 저장한다.
+	 * 
+	 * @param modelName
+	 */
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	/**
+	 * 자동자 색상을 반환한다.
+	 * 
+	 * @return color
+	 */
+	public String getColor() {
+		return color;
+	}
+
+	/**
+	 * 자동차 색상을 저장한다.
+	 * 
+	 * @param color
+	 */
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	/**
+	 * 자동차 주행거리를 반환한다.
+	 * 
+	 * @return mileage
+	 */
+	public int getMileage() {
+		return mileage;
+	}
+
+	/**
+	 * 자동차 주행거리를 저장한다.
+	 * 
+	 * @param mileage
+	 */
+	public void setMileage(int mileage) {
+		this.mileage = mileage;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + ", age=" + age
-				+ "]";
+		return "Car [VIN=" + VIN + ", modelName=" + modelName + ", color=" + color + ", mileage=" + mileage + "]";
 	}
-	
-}
 
+}
