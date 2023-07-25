@@ -41,6 +41,7 @@ public class java_SWEA_7087 {
 			for(int i=0; i<n; i++) {
 				title[i] = sc.next(); //next()는 공백까지도, nextLine()은 줄 단위로
 				alphabet[ title[i].toCharArray()[0] - 'A']++; //문자열명.toCharArray()[원하는 문자 인덱스]
+				//alphabetUsed[title.charAt(0) - 'A']도 가능
 			
 			}
 			
