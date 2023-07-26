@@ -27,33 +27,29 @@ import java.util.Scanner;
 public class java_SWEA_7087 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int t = sc.nextInt();
-		int n;
+	
 		
-		
-		for(int test_case=1; test_case<=t; test_case++) {
-			n = sc.nextInt();
+	    Scanner sc = new Scanner(System.in);
+			int t = sc.nextInt();
+			int n; //문자 최대 30개
+			String[] title = new String[30];
 			
-			String[] title = new String[n];
-			
-			int[] alphabet = new int[26]; //알파벳 개수만큼(A~Z)
-			for(int i=0; i<n; i++) {
-				title[i] = sc.next(); //next()는 공백까지도, nextLine()은 줄 단위로
-				alphabet[ title[i].toCharArray()[0] - 'A']++; //문자열명.toCharArray()[원하는 문자 인덱스]
-				//alphabetUsed[title.charAt(0) - 'A']도 가능
-			
-			}
-			
-			int count = 0;
-			for(int i=0; i<26; i++) {
-				if(alphabet[i] == 0) {
-					break;
+			for(int test_case=1; test_case<=t; test_case++) {
+				n = sc.nextInt();
+				
+				int[] alphabet = new int[27]; //알파벳 개수만큼(A~Z)
+				for(int i=0; i<n; i++) {
+					title[i] = sc.next(); //next()는 공백까지도, nextLine()은 줄 단위로
+					alphabet[ title[i].toCharArray()[0] - 'A']++; //문자열명.toCharArray()[원하는 문자 인덱스]
 				}
-				else count++;
+				
+				for(int i=0; i<27; i++) {
+					if(alphabet[i] == 0) {
+						System.out.println("#"+test_case+" "+i);
+						break;
+					}
+				}
+				
 			}
-			System.out.println("#"+test_case+" "+count);
-			
 		}
-	}
 }
