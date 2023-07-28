@@ -16,7 +16,6 @@ P개의 버스 정류장에 대해 각 정류장에 몇 개의 버스 노선이 
 한 줄에 P개의 정수를 공백 하나로 구분하여 출력한다.
 j번째 정수는 Cj번 버스 정류장을 지나는 버스 노선의 개수여야 한다.
  */
-
 package algorism_java;
 
 import java.util.Scanner;
