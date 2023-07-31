@@ -25,6 +25,33 @@ import java.io.FileInputStream;
 public class Solution {
 
 	public static void main(String[] args) throws Exception {
+		int[][] num = new int[5][5];
+		int a = 1;
+		for(int i=0; i<5; i++) {
+			for(int j=0; j<5-i; j++) {
+				num[i][j] = a++;
+				System.out.printf("%d ", num[i][j]);
+			}
+			System.out.println();
+			a = 1;
+		}
+		
+		/* 역순으로 알파벳 출력하기 
+		char[][] a = new char[5][5];
+		char c= 'C';
+		char c1 = c;
+		for(int i=0; i<5; i++) {
+			for(int j=0; j<5-i; j++) {
+				a[i][j] = c++;
+				System.out.printf("%c ", a[i][j]);
+			}
+			System.out.println();
+			c = ++c1;
+		}
+		*/
+		
+		
+		/* 피라미드 별 만들기 
 		Scanner sc = new Scanner(System.in);
 		int num = 10;
 		for(int i=0; i<10; i++) {
@@ -36,6 +63,7 @@ public class Solution {
 			}
 			System.out.println();
 		}
+		*/
 	}
 }
 
