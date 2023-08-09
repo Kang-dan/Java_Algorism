@@ -8,28 +8,46 @@ import java.util.Scanner;
 //그주 워크샵, 과제 등등 배운내용 복습하는 다요리 
 
 public class 복습 {
-	static int N, R;
-	static int[] input;
+	static int N,R;
 	static int[] numbers;
+	static int[] input;
 	static boolean[] isSelected;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
-//		R = sc.nextInt();
+		R = sc.nextInt();
+		numbers = new int[R]; //최종 출력 
 		input = new int[N];
-		numbers = new int[R];
-		isSelected = new boolean[N];
-		for(int i = 0; i < N; i ++) {
+		for(int i = 0; i < N; i++) {
 			input[i] = sc.nextInt();
 		}
-//		순열(0);
+		isSelected = new boolean[N];
+		
+		순열(0);
+		}
+//		순열();
 //		조합(0, 0);
 //		중복순열(0);
 //		중복조합(0,0);
 //		부분집합바이너리카운팅();
-		부분집합재귀(0);
+//		부분집합재귀(0);
+
+	private static void 순열(int cnt) {
+		if(cnt == R) {
+			System.out.println(Arrays.toString(numbers));
+			return;
+		}
+		for(int i = 0; i < N; i ++) {
+			if(isSelected[i]) continue;
+			numbers[cnt] = input[i];
+			isSelected[i] = true;
+			순열(cnt + 1);
+			isSelected[i] = false;
+		}
 	}
-	
+}
+
+	/*
 	private static void 부분집합재귀(int cnt) {
 		if(cnt == N) {
 			for(int i = 0; i < N; i ++) {
@@ -47,7 +65,7 @@ public class 복습 {
 
 	}
 }
-
+*/
 
 
 /*
