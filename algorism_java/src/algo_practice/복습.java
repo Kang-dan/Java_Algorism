@@ -2,35 +2,85 @@ package algo_practice;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Queue;
 import java.util.Scanner;
 
 //그주 워크샵, 과제 등등 배운내용 복습하는 다요리 
+
 
 public class 복습 {
 	static int N,R;
 	static int[] numbers;
 	static int[] input;
 	static boolean[] isSelected;
+	
+	static char[] bfsData = {' ','a','b','c','d','e','f','g','h','i','j','k'};
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
-		R = sc.nextInt();
-		numbers = new int[R]; //최종 출력 
-		input = new int[N];
-		for(int i = 0; i < N; i++) {
-			input[i] = sc.nextInt();
-		}
-		isSelected = new boolean[N];
+//		Scanner sc = new Scanner(System.in);
+//		N = sc.nextInt();
+//		R = sc.nextInt();
+//		numbers = new int[R]; //최종 출력 
+//		input = new int[N];
+//		for(int i = 0; i < N; i++) {
+//			input[i] = sc.nextInt();
+//		}
+//		isSelected = new boolean[N];
 		
-		순열(0);
-		}
+//		순열(0);
 //		순열();
 //		조합(0, 0);
 //		중복순열(0);
 //		중복조합(0,0);
 //		부분집합바이너리카운팅();
 //		부분집합재귀(0);
+		
+//		BFS이진트리탐색(1);
+		BFS이진트리레벨별탐색(1);
+		}
+	
+	private static void BFS이진트리레벨별탐색(int index) {
+		Queue<Integer> q = new ArrayDeque<>();
+		q.offer(index);
+		
+		int lvl = 0;		
+		while(!q.isEmpty()) {
+			int size = q.size();
+			System.out.print(lvl++ + " : ");
+			for( int i = 0; i < size; i++) {
+				int v = q.poll();
+				System.out.print(bfsData[v] + " ");
+				
+				int left = v * 2, right = v * 2 + 1;
+				if(left >= bfsData.length) continue;
+				q.offer(left);
+				
+				if(right >= bfsData.length) continue;
+				q.offer(right);
+			}
+			System.out.println();		
+		}
+	}
+	
+	private static void BFS이진트리탐색(int index) {
+		Queue<Integer> q = new ArrayDeque<>();
+		q.offer(index);
+		
+		int lvl = 0;
+		while(!q.isEmpty()) {
+			
+			int v = q.remove();
+			System.out.println(bfsData[v]);
+			
+			int left = v * 2, right = v * 2 + 1;
+			if(left >= bfsData.length) continue;
+			q.offer(left);
+			
+			if(right >= bfsData.length) continue;
+			q.offer(right);
+		}
+	}
 
 	private static void 순열(int cnt) {
 		if(cnt == R) {
@@ -45,9 +95,9 @@ public class 복습 {
 			isSelected[i] = false;
 		}
 	}
-}
 
-	/*
+
+	
 	private static void 부분집합재귀(int cnt) {
 		if(cnt == N) {
 			for(int i = 0; i < N; i ++) {
@@ -65,7 +115,7 @@ public class 복습 {
 
 	}
 }
-*/
+
 
 
 /*
@@ -115,12 +165,14 @@ public class 복습 {
 			return;
 		}
 		for(int i=start; i<N; i++) {
-			numbers[index] = i;
+			numbers[index] = input[i];
 			조합(index+1, i+1);
 		}
 	
 	}
+}
 	
+/*
 	private static void 중복조합(int index, int start) {
 		if(index == R) {
 			System.out.println(Arrays.toString(numbers));
