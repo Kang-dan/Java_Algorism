@@ -36,7 +36,7 @@ public class baek_11660_구간합구하기5 {
 			
 			int i2 = Integer.parseInt(st.nextToken());
 			int j2 = Integer.parseInt(st.nextToken());
-				
+			
 			int resultSum = 0;
 			for(int d = i2; d >= i1; d--) { // 가로줄 하나씩 구하려고 
 				resultSum += doubleSumMap[d][j2] - doubleSumMap[d][j1-1];
