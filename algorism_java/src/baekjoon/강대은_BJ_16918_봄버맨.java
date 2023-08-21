@@ -16,7 +16,7 @@ public class 강대은_BJ_16918_봄버맨 {
 
         st = new StringTokenizer(br.readLine());
 
-        r = Integer.parseInt(st.nextToken());
+        r = Integer.parseInt(st.nextToken());  c
         c = Integer.parseInt(st.nextToken());
         int time = Integer.parseInt(st.nextToken());
 
