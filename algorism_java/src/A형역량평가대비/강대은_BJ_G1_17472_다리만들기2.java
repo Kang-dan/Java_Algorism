@@ -1,3 +1,14 @@
+/* bfs + 크루스칼
+bfs : 섬의 개수 구하기, 섬의 고유번호로 바꿔주기
+섬과 섬 사이 다리 연결할 수 있는 거리 구하기 : 각 섬에서 사방으로 최소의 거리 구해서 인접행렬로 넣기(양방향)
+크루스칼 : 인접행렬에 있는 배열을 통해 인접간선 넣고, 최소비용 선택해가기 (union + find)
+=> 섬과 섬 사이 최소거리 구하는 경우에서 히든 있음
+예) 4 7
+1 0 0 1 0 0 1
+1 0 0 1 0 0 1
+1 0 0 1 0 0 0
+1 1 1 1 0 0 0
+*/
 package A형역량평가대비;
 
 import java.util.*;
@@ -72,21 +83,21 @@ public class 강대은_BJ_G1_17472_다리만들기2 {
 			}
 		}
 		
-		//1인 부분 bfs돌고, 각 섬의 고유번호로 바꾸기 (1,2,3,4,5,,,)
+		//bfs) 1인 부분 bfs돌고, 각 섬의 고유번호로 바꾸기 (1,2,3,4,5,,,)
 		for(int i = 1; i <= sizeY; i++) {
 			for(int j = 1; j <= sizeX; j++) {
 				if(map[i][j] == 1 && isVisit[i][j] == false) bfs(i, j);
 			}
 		}
 		
-		LandDistance = new int[landNum+1][landNum+1];
+		LandDistance = new int[landNum+1][landNum+1]; //섬과 섬사이 연결할 수 있는 거리 인접행렬(양방향)
 		
 		//가중치 있는 인접행렬 최대값으로 초기화
 		for(int i = 1; i <= landNum; i++) {
 			Arrays.fill(LandDistance[i], Integer.MAX_VALUE);			
 		}
 		
-		//각 섬 사이 거리 구해주기 & (크루스칼) 인접 노드 연결 
+		//각 섬 사이 거리 구해주기 - 4방향 & (크루스칼) 인접 노드 연결 
 		for(int i = 1; i <= sizeY; i++) {
 			for(int j = 1; j <= sizeX; j++) {
 				if(map[i][j] != 0) 다른섬까지최소거리(i, j, map[i][j]); //인덱스, 섬 번호
@@ -109,9 +120,9 @@ public class 강대은_BJ_G1_17472_다리만들기2 {
 				if(LandDistance[from][to] != Integer.MAX_VALUE) edgeCnt++;
 			}
 		}
-		edgeCnt /= 2;
+		edgeCnt /= 2; //양방향이니까 
 		
-		//크루스칼 이용 (노드 리스트 만들어주기)
+		//크루스칼) 노드 리스트 만들어주기
 		edgeList = new Edge[edgeCnt];
 		
 		int cnt = 0;
@@ -126,7 +137,7 @@ public class 강대은_BJ_G1_17472_다리만들기2 {
 			}
 		}
 		
-		//간선리스트 가중치 기준 오름차순 정렬
+		//크루스칼) 간선리스트 가중치 기준 오름차순 정렬
 		Arrays.sort(edgeList);
 		
 		//make작업 
@@ -213,16 +224,14 @@ public class 강대은_BJ_G1_17472_다리만들기2 {
 			LandDistance[whoNum][numLand] = LandDistance[numLand][whoNum] = Math.min(distance, LandDistance[numLand][whoNum]);
 		}
 	}
-	
-	
-	//전처리2) 섬의 개수 파악 및 섬의 고유번호 만들어주기 
+
+	//전처리1) 섬의 개수 파악 및 섬의 고유번호 만들어주기 
 	private static void bfs(int y, int x) {
 		landNum++; //섬의 고유번호 넣어주기 (최종 값이 섬의 개수 )
 		Queue<int[]> q = new ArrayDeque<>();
 		q.offer(new int[] {y,x});
 		isVisit[y][x] = true;
-		
-		
+	
 		while(!q.isEmpty()) {
 			int[] v = q.poll();
 			int a = v[0];
@@ -237,7 +246,5 @@ public class 강대은_BJ_G1_17472_다리만들기2 {
 			}
 		}
 	}
-	
-	
 
 }
