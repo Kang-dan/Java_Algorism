@@ -1,3 +1,6 @@
+/*
+ * 문제 제대로 읽자!!!
+ */
 package A형역량평가대비;
 
 import java.util.*;
@@ -72,8 +75,27 @@ public class SWEA_모의SW역평_2105_디저트카페 {
 		int a2 = 0, b2 = 0;
 		int a3 = 0, b3 = 0;
 		
-		 //1. 오른쪽 아래 방향 
+//		int[] size = { one, two};
+//		
+//		for(int d = 0; d < 4; d++) {
+//			for(int i = 1; 1 < size[d % 2]; i++) {
+//				int nx = x + i * dx[d];
+//				int ny = x + i * dy[d];		
+//				
+//				if(y + i*dy[d] < 0 || y + i*dy[0] >= N || x + i*dx[0] < 0 || x + i*dx[0] >= N) return; //배열범위 넘으면 리턴 
+//				if( desert [ map[y + i*dy[0]][x + i*dx[0]] ] == true) return; //디저트 종류 겹치면 리턴 
+//				sum += map[y + i*dy[0]][x + i*dx[0]];
+//				desert[ map[y + i*dy[0]][x + i*dx[0]] ] = true; //디저트 종류 방문 체크 
+//				a = y + i*dy[0];
+//				b = x + i*dx[0];
+//
+//			}
+//		}
+		
+		//1. 오른쪽 아래 방향 
 		for(int i = 1; i < one; i++) {
+			int nx = x + i * dx[0]; //이 변수로 쓰기 
+			int ny = y + i * dy[0]; //이 변수로 쓰기 
 			if(y + i*dy[0] < 0 || y + i*dy[0] >= N || x + i*dx[0] < 0 || x + i*dx[0] >= N) return; //배열범위 넘으면 리턴 
 			if( desert [ map[y + i*dy[0]][x + i*dx[0]] ] == true) return; //디저트 종류 겹치면 리턴 
 			sum += map[y + i*dy[0]][x + i*dx[0]];
@@ -115,13 +137,17 @@ public class SWEA_모의SW역평_2105_디저트카페 {
 		//한바퀴 돌고 첫 지점과 끝지점이 동일한지 확인
 		if(a3 != y || b3 != x) return;
 		
-		if(sum > resultMax) {
-			resultCnt = 0;
-			resultMax = sum;
-			for(int i = 0; i < 101; i++) {
-				if(desert[i]) resultCnt++;
-			}
-		}
+		int cnt = 0;
+		for(int i = 0; i < 101; i++) if(desert[i]) cnt++;
+		resultCnt = Math.max(resultCnt, cnt);
+		
+//		if(sum > resultMax) {
+//			resultCnt = 0;
+//			resultMax = sum;
+//			for(int i = 0; i < 101; i++) {
+//				if(desert[i]) resultCnt++;
+//			}
+//		}
 //		
 		//확인용 (테케 제대로 나옴)
 //		bw.write("sum="+sum+" ");
