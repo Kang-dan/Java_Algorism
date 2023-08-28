@@ -44,14 +44,13 @@ public class swea_SWTest샘플문제_1767_프로세서연결하기 {
 					
 					if(i == 0 || j == 0 || i == N-1 || j == N-1) continue; //끝자리에 있다면 
 					if(map[i][j] == 1) coreList.add(new Core(i, j)); //프로세서 좌표 넣기 
-
 				}
 			}
 			
 			minLength = Integer.MAX_VALUE;
 			maxCore = Integer.MIN_VALUE;
 			
-			dfs(0, 0, 0);
+			dfs(0, 0, 0); //현재 위치, 코어개수, 현재 전선길이 합 
 			
 			bw.write(String.format("#%d %d\n", test, minLength));
 		}
@@ -66,7 +65,7 @@ public class swea_SWTest샘플문제_1767_프로세서연결하기 {
 	
 	private static void dfs(int idx, int coreCnt, int wireCnt) {
 		if(idx == coreList.size()) {
-			if(maxCore < coreCnt) {
+			if(maxCore < coreCnt) { 
 				maxCore = coreCnt;
 				minLength = wireCnt;
 			} else if(maxCore == coreCnt) {
