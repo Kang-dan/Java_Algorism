@@ -1,9 +1,12 @@
+/*
+ * dfs로 풀었다가 테케는 맞고, 시간초과남.
+ */
 package 스터디;
 
 import java.util.*;
 import java.io.*;
 
-public class BJ_1442_벽부수고이동하기2 {
+public class BJ_1442_벽부수고이동하기2_dfs시간초과{
 
 	static int N, M, K;
 	static int resultCnt;
@@ -73,6 +76,8 @@ public class BJ_1442_벽부수고이동하기2 {
 		return;
 		
 	}
+	<link rel="stylesheet" href="css/main.css" />
+	  </head>
 	
 	
 	
