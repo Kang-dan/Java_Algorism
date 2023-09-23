@@ -1,11 +1,11 @@
-// 중복순열은 통과. 일반순열은 시간초과
+// 중복순열은 통과. 일반순열은 시간초과 
 
 package A형역량평가대비;
 
 import java.util.*;
 import java.io.*;
 
-public class SWEA_모의SW역량_숫자만들기 {
+public class SWEA_모의SW역량_4008_숫자만들기 {
 
 	static int N, max, min;
 	static int[] num;
