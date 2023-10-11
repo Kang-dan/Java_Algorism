@@ -50,7 +50,7 @@ public class swea_2239_스도쿠 {
 	}
 
 	private static void Check3x3(int r, int c, boolean[] sudo2) {
-		
+		if()
 	}
 
 }
