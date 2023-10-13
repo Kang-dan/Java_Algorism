@@ -78,6 +78,7 @@ public class BJ_2239_스도쿠_순열로풀어보자 {
 //					System.out.println(Arrays.toString(input));
 //					System.out.println();					
 //				}
+				
 				return;
 //				newInput = new int[input.length];
 			}
