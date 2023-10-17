@@ -25,7 +25,7 @@ public class BJ_2573_빙산 {
 			st = new StringTokenizer(br.readLine());
 			for(int j = 0; j < M; j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
-			}
+			}s
 		}
 		
 		int t = 0; //시간 
