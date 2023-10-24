@@ -80,27 +80,19 @@ public class BJ_11779_최소비용구하기2 {
 		int[] path = new int[N+1];
 		path[0] = E;
 		int i = 0, child = parents[E], parent = E;
-		if(child == S) {
-			bw.write(i+1+"\n");
-			bw.write(S + " " + E);
-			
-		} else {
-			while(true) {
-				if(child == S) {
-					break;
-				}
-				child = parents[parent]; //거꾸로 
-				path[++i] = child;
-				parent = child;
-			}
+		while(true) {
+			if(child == S) break;
+			child = parents[parent]; //거꾸로 
+			path[++i] = child;
+			parent = child;
+		}
 //		System.out.println(Arrays.toString(path));
-			path[i] = S;
-			
-			bw.write(i+1+"\n");
-			
-			for(int j = i; j >= 0; j--) {
-				bw.write(path[j]+" ");
-			}
+		path[i] = S;
+		
+		bw.write(i+1+"\n");
+		
+		for(int j = i; j >= 0; j--) {
+			bw.write(path[j]+" ");
 		}
 		
 	}
